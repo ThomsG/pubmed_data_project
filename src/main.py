@@ -13,7 +13,7 @@ else:
 # Extracting data from input files
 print("Loading data...")
 
-extract = Extraction("data\input")
+extract = Extraction("data/input")
 
 print(extract.clinical_trials.head())
 print(extract.drugs.head())
