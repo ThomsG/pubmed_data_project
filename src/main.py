@@ -1,5 +1,6 @@
 from extraction.extraction import Extraction
 from verification.verification import Verification
+from transformation.transformation import Transformation
 
 # Checking file validity
 print("Checking file validity...")
@@ -15,8 +16,17 @@ print("Loading data...")
 
 extract = Extraction("data/input")
 
-print(extract.clinical_trials.head())
-print(extract.drugs.head())
-print(extract.pubmed_csv.head())
-print(extract.pubmed_json.head())
+
+
+# Appliquer la fonction à la colonne 'date'
+extract.clinical_trials['date'] = extract.clinical_trials['date'].apply(lambda x: Transformation.harmonize_date(str(x)) if x else None)
+
+print(extract.clinical_trials)
+
+
+print(extract.drugs)
+print(extract.pubmed_csv)
+print(extract.pubmed_json)
+
+
 
