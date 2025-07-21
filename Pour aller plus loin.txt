@@ -1,0 +1,24 @@
+1) Quels sont les éléments à considérer pour faire évoluer votre code afin qu’il puisse gérer 
+de grosses volumétries de données (fichiers de plusieurs To ou millions de fichiers par exemple) ?
+
+Si on est face à des fichiers très lourds, il faut stocker la donnée dans une base de données (cloud ou NoSQL) pour libérer 
+la RAM et profiter de la puissance de celle-ci. Les fonctions de transformation pourraient être effectués dessus aussi. On pourrait
+utiliser des solutions distribués tel que Hadoop ou Spark. Il faudrait optimiser les fonctions de transformation.
+
+Si on est face à des millions de fichiers, il faut les charger par lots. Les stocker en base est aussi pertinent.
+
+Dans les deux cas, les traitements peuvent durer très longtemps, on doit prévoir des solutions de reprise pour ne pas relancer
+à partir du début.
+
+La génération du graphe peut poser problème aussi, il faudrait la modifier pour qu'elle puisse fonctionner de manière incrémentale.
+
+
+2) Pourriez-vous décrire les modifications qu’il faudrait apporter, s’il y en a, pour prendre 
+en considération de telles volumétries ?
+
+Ajouter une étape d'extraction des fichiers sources vers une base sans modifier les données (équivalent à un bronze layer)
+Effectuer les transformations en base par un ELT ou un outil de transformation comme DBT et stocker le résultat intermédiaire, toujours en base.
+Si les transformations doivent avoir lieu au sein du projet, utiliser Hadoop ou Spark pour lire, transformer les données et stocker le résultat intermédiaire dans un fichier, alimenté de manière incrémentale.
+Les fonctions de transformation doivent être repensées pour être optimisé au maximum (voir comment simplifier, cibler efficacement ce qu'il y'a à modifier, utiliser des fonctions ou des librairies moins gourmandes)
+Construire de manière incrémentale le graphe, ne pas recréer le fichier.
+Ajout de logs et des checkpoints pour faciliter le débogage et effectuer une reprise à un point identifié.
