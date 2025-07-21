@@ -35,7 +35,7 @@ extract.pubmed_json = Transformation.fill_missing_ids(extract.pubmed_json, 'id')
 # Save clean df as files to data/ready
 print("Output processed data as files...")
 
-ready_dir = os.path.join('data', 'ready')
+ready_dir = os.path.join('data', 'processed')
 os.makedirs(ready_dir, exist_ok=True)
 
 extract.clinical_trials.to_csv(os.path.join(ready_dir, 'clinical_trials.csv'), index=False)
@@ -43,12 +43,12 @@ extract.drugs.to_csv(os.path.join(ready_dir, 'drugs.csv'), index=False)
 extract.pubmed_csv.to_csv(os.path.join(ready_dir, 'pubmed.csv'), index=False)
 extract.pubmed_json.to_json(os.path.join(ready_dir, 'pubmed.json'), orient='records', force_ascii=False, indent=2)
 
-print('DataFrames successfully saved to path: data/ready/')
+print('DataFrames successfully saved to path: data/processed/')
 
 # Extracting data from ready files
 print("Extracting processed data...")
 
-extract = Extraction("data/ready")
+extract = Extraction("data/processed")
 
 # Generating the graph
 print("Generating the graph...")
