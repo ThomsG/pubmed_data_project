@@ -7,11 +7,11 @@ import os
 # Checking file validity
 print("Checking file validity...")
 
-invalid_files = Verification("data/raw_input")
-if invalid_files:
-    print("Invalid files:", invalid_files) 
+verification = Verification("data/raw_input")
+if verification.invalid_files:
+    print("Invalid files:", verification.invalid_files) 
 else:
-    print("All files are valid.")
+    print("All files are valid")
 
 # Extracting data from raw input files
 print("Extracting data...")
@@ -19,7 +19,7 @@ print("Extracting data...")
 extract = Extraction("data/raw_input")
 
 # Transforming data by cleaning them 
-# (we assume that the data is inconsistent only identified columns where we applied transformations)
+# (we assume that the data inconsistency are only found in identified columns where we applied transformations)
 print("Transforming data...")
 
 extract.clinical_trials = Transformation.harmonize_date(extract.clinical_trials, 'date')
