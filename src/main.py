@@ -12,21 +12,23 @@ else:
     print("All files are valid.")
 
 # Extracting data from input files
-print("Loading data...")
+print("Extracting data...")
 
 extract = Extraction("data/input")
 
+# Transforming data by cleaning them
+print("Transforming data...")
 
+extract.clinical_trials = Transformation.harmonize_date(extract.clinical_trials, 'date')
+extract.clinical_trials = Transformation.clean_text_encoding_issues(extract.clinical_trials, 'journal')
+extract.clinical_trials = Transformation.clean_text_encoding_issues(extract.clinical_trials, 'scientific_title')
+extract.clinical_trials = Transformation.merge_rows(extract.clinical_trials, 'scientific_title')
 
-# Appliquer la fonction à la colonne 'date'
-extract.clinical_trials['date'] = extract.clinical_trials['date'].apply(lambda x: Transformation.harmonize_date(str(x)) if x else None)
+extract.pubmed_csv = Transformation.harmonize_date(extract.pubmed_csv, 'date')
+extract.pubmed_json = Transformation.harmonize_date(extract.pubmed_json, 'date')
+extract.pubmed_json = Transformation.fill_missing_ids(extract.pubmed_json, 'id')
 
 print(extract.clinical_trials)
-
-
 print(extract.drugs)
 print(extract.pubmed_csv)
 print(extract.pubmed_json)
-
-
-
