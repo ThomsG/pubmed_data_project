@@ -1,6 +1,7 @@
 from extraction.extraction import Extraction
 from verification.verification import Verification
 from transformation.transformation import Transformation
+from graph_generation.graph_generation import GraphGeneration
 import os
 
 # Checking file validity
@@ -43,3 +44,18 @@ extract.pubmed_csv.to_csv(os.path.join(ready_dir, 'pubmed.csv'), index=False)
 extract.pubmed_json.to_json(os.path.join(ready_dir, 'pubmed.json'), orient='records', force_ascii=False, indent=2)
 
 print('DataFrames successfully saved to path: data/ready/')
+
+# Extracting data from ready files
+print("Extracting processed data...")
+
+extract = Extraction("data/ready")
+
+# Generating the graph
+print("Generating the graph...")
+graph_gen = GraphGeneration(extract.clinical_trials, extract.drugs, extract.pubmed_csv, extract.pubmed_json)
+
+# Exporting the graph
+print("Exporting the graph as a JSON file...")
+GraphGeneration.export_graph_to_json(graph_gen.graph)
+
+print('Graph successfully saved to path: data/output/')
