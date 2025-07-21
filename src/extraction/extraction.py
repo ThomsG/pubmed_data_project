@@ -26,6 +26,6 @@ class Extraction:
         self.pubmed_csv = pd.read_csv(pubmed_csv_path)
 
         # Charger pubmed.json
-        pubmed_json_path = os.path.join(self.data_folder, "pubmed_corrected.json")
+        pubmed_json_path = os.path.join(self.data_folder, "pubmed.json")
         with open(pubmed_json_path, encoding="utf-8") as f:
             self.pubmed_json = pd.DataFrame(json.load(f))

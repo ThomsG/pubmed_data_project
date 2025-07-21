@@ -1,0 +1,129 @@
+{
+  "drugs": [
+    {
+      "drug": "DIPHENHYDRAMINE",
+      "references": {
+        "pubmed": [
+          "2019-01-01",
+          "2019-01-02"
+        ],
+        "clinical_trials": [
+          "2020-01-01"
+        ]
+      },
+      "journals": {
+        "Journal of emergency nursing": [
+          "2019-01-01",
+          "2020-01-01"
+        ],
+        "The Journal of pediatrics": [
+          "2019-01-02"
+        ]
+      }
+    },
+    {
+      "drug": "TETRACYCLINE",
+      "references": {
+        "pubmed": [
+          "2020-01-01",
+          "2020-01-02"
+        ]
+      },
+      "journals": {
+        "Journal of food protection": [
+          "2020-01-01"
+        ],
+        "American journal of veterinary research": [
+          "2020-01-02"
+        ],
+        "Psychopharmacology": [
+          "2020-01-01"
+        ]
+      }
+    },
+    {
+      "drug": "ETHANOL",
+      "references": {
+        "pubmed": [
+          "2020-01-01"
+        ]
+      },
+      "journals": {
+        "Psychopharmacology": [
+          "2020-01-01"
+        ]
+      }
+    },
+    {
+      "drug": "ATROPINE",
+      "references": {
+        "pubmed": [
+          "2020-03-01"
+        ]
+      },
+      "journals": {
+        "The journal of maternal-fetal & neonatal medicine": [
+          "2020-03-01"
+        ]
+      }
+    },
+    {
+      "drug": "EPINEPHRINE",
+      "references": {
+        "pubmed": [
+          "2020-02-01",
+          "2020-03-01"
+        ],
+        "clinical_trials": [
+          "2020-04-27"
+        ]
+      },
+      "journals": {
+        "The journal of allergy and clinical immunology. In practice": [
+          "2020-02-01",
+          "2020-03-01"
+        ],
+        "Journal of emergency nursing": [
+          "2020-04-27"
+        ]
+      }
+    },
+    {
+      "drug": "ISOPRENALINE",
+      "references": {
+        "pubmed": [
+          "2020-01-01"
+        ]
+      },
+      "journals": {
+        "Journal of photochemistry and photobiology. B, Biology": [
+          "2020-01-01"
+        ]
+      }
+    },
+    {
+      "drug": "BETAMETHASONE",
+      "references": {
+        "pubmed": [
+          "2020-01-01",
+          "2020-03-01"
+        ],
+        "clinical_trials": [
+          "2020-01-01"
+        ]
+      },
+      "journals": {
+        "The journal of maternal-fetal & neonatal medicine": [
+          "2020-01-01",
+          "2020-03-01"
+        ],
+        "Journal of back and musculoskeletal rehabilitation": [
+          "2020-01-01"
+        ],
+        "Hôpitaux Universitaires de Genève": [
+          "2020-01-01"
+        ]
+      }
+    }
+  ]
+}
